@@ -1,0 +1,78 @@
+{% load static %}
+{% include 'header.html' %}
+<html lang="en">
+  <head>
+    <title>Bright Hotel - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   {% include 'header.html' %}
+  <body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">BrightHotel</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+
+          <li class="nav-item active"><a href="{% url 'customer_view_conventionhall' %}" class="nav-link">View Convention Hall</a></li>
+           <li class="nav-item active"><a href="{% url 'update_profile' %}" class="nav-link">Update_Profile</a></li>
+          <li class="nav-item active"><a href="{% url 'change_password' %}" class="nav-link">Change Password</a></li>
+          <li class="nav-item active"><a href="{% url 'view_Details' %}" class="nav-link">View Details</a></li>
+          <li class="nav-item active"><a href="{% url  'viewcontactdetails' %}" class="nav-link">View Contacts</a></li>
+          <li class="nav-item active"><a href="{% url 'customer_logout' %}" class="nav-link">Logout</a></li>
+
+
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="block-30 block-30-sm item" style="background-image: url({% static 'images/bg_2.jpg' %});" data-stellar-background-ratio="0.5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-10">
+<!--          <span class="subheading-sm">Contact</span>-->
+          <h2 class="heading"> Customer Ratings</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<br><br>
+<!--<h1> MY Details</h1>-->
+<table class="center" align="center" >
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Email</th>
+      <th scope="col">Rating</th>
+      <th scope="col">comment</th>
+    </tr>
+    </thead>
+    <tbody>
+{% for customer in customer%}
+    <tr>
+        <td>{{y.id}}</td>
+        <td>{{customer.email}}</td>
+        <td>{{customer.rating}}</td>
+        <td>{{customer.comment}}</td>
+
+
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+<br><br><br>
+
+
+  {% include 'footer.html' %}
+
+  </body>
+</html>

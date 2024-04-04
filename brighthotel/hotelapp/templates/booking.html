@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <title>Bright Hotel - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% include 'header.html' %}
+  </head>
+  <body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">BrightHotel</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+           <li class="nav-item active"><a href="{% url 'customer_view_conventionhall' %}" class="nav-link">view convention hall</a></li>
+            <li class="nav-item active"><a href="{% url 'customer_view_booking' %}" class="nav-link">View Booking Details</a></li>
+          <li class="nav-item active"><a href="{% url 'customer_view_notifications' %}" class="nav-link">View Notifications</a></li>
+           <li class="nav-item active"><a href="{% url 'update_profile' %}" class="nav-link">update_profile</a></li>
+          <li class="nav-item active"><a href="{% url 'change_password' %}" class="nav-link">Change Password</a></li>
+          <li class="nav-item active"><a href="{% url 'view_Details' %}" class="nav-link">View Details</a></li>
+          <li class="nav-item active"><a href="{% url 'customer_logout' %}" class="nav-link">Logout</a></li>
+
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- END nav -->
+
+
+
+  <div class="block-30 block-30-sm item" style="background-image: url({% static 'images/bg_2.jpg' %});" data-stellar-background-ratio="0.5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-10">
+<!--          <span class="subheading-sm">Admin Login page</span>-->
+          <h2 class="heading">Booking</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="site-section">
+    <div class="container">
+      <div class="row block-9">
+        <div class="col-md-6 pr-md-5">
+          <form action="" method="POST">
+            {% csrf_token %}
+<!--              <h1 style="color:blue"></h1>-->
+            <div class="form-group">
+              <input type="number" class="form-control px-3 py-3" name="conventionhall1" placeholder="ID" required readonly value="{{hall1.id}}">
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control px-3 py-3" name="email" placeholder="Your Email" readonly value="{{email}}">
+            </div>
+            <div class="form-group">
+              <input type="date" class="form-control px-3 py-3" name="required_date" min="1" max="5" placeholder="Required Date" required>
+            </div>
+              <div class="form-group">
+              <input type="time" class="form-control px-3 py-3" name="from_time" placeholder="From Time" required>
+            </div>
+            <div class="form-group">
+              <input type="time" class="form-control px-3 py-3" name="to_time" placeholder="To Time" required>
+            </div>
+            <div class="form-group">
+              <input type="number" class="form-control px-3 py-3" name="no_of_guests" placeholder="No_Of_Guests" required>
+            </div>
+            <div class="form-group">
+              <input type="number" class="form-control px-3 py-3" name="cost" placeholder="Cost" required readonly value="{{hall2.cost}}">
+            </div>
+
+            <div class="form-group">
+              <input type="submit" value="Book" class="btn btn-primary py-3 px-5">
+            </div>
+          </form>
+          {{msg}}
+
+        </div>
+
+        <div class="col-md-6" id="map"></div>
+      </div>
+    </div>
+  </div>
+
+   {% include 'footer.html' %}
+
+  </body>
+</html>
